@@ -1,0 +1,34 @@
+<html>
+  <head>
+  <title>Oauth2</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">    
+  <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+  <div class="container">
+    <form action="/signup" method="post" class="myfrom">
+      <h2>Sign Up</h2>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Confirm Password</label>
+        <input type="password" name="confirm_password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+      </div>
+      <% if(typeof message != 'undefined') { %>
+      <div class="form-group">
+        <p class="error"><%=message%></p>
+      </div>
+      <% } %>
+      <button type="submit" class="btn btn-primary">Sign Up Now</button>
+      <a href="/signin"><button type="button" class="btn btn-primary">Sign In</button></a>
+    </form>
+  </div>
+    
+  </body>
+</html>
