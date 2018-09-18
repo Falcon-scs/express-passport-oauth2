@@ -35,8 +35,8 @@ module.exports = function (passport) {
   passport.use('main', refreshStrategy);
 
   var oauthStartegy = new OAuth2Strategy({
-    authorizationURL: 'https://authserver/oauth2/auth',
-    tokenURL: 'https://authserver/oauth2/token',
+    authorizationURL: 'https://localhost:4000/oauth2/auth',
+    tokenURL: 'https://localhost:4000/oauth2/token',
     clientID: 'clientID',
     clientSecret: 'clientSecret',
     callbackURL: '/home',
@@ -83,6 +83,8 @@ module.exports = function (passport) {
     function (req, email, password, done) {
       if (email)
         email = email.toLowerCase();
+        console.log("body");
+        console.log(req.body);
 
       // asynchronous
       process.nextTick(function () {
@@ -95,6 +97,7 @@ module.exports = function (passport) {
             } else {
               var newUser = new User();
               newUser.email = email;
+              newUser.role = req.body.role;
               newUser.password = newUser.generateHash(password);
               newUser.save(function (err) {
                 if (err)
@@ -114,6 +117,7 @@ module.exports = function (passport) {
             } else {
               var user = req.user;
               user.email = email;
+              user.role = req.body.role;
               user.password = user.generateHash(password);
               user.save(function (err) {
                 if (err)

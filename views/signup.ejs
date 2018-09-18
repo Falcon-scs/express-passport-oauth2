@@ -13,12 +13,20 @@
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
       </div>
       <div class="form-group">
+        <label for="role">Role</label>
+        <select class="form-control" name="role" id="role">
+          <option value="0">User</option>
+          <option value="1">Group</option>
+          <option value="2">Admin</option>
+        </select>
+      </div>
+      <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
         <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Confirm Password</label>
-        <input type="password" name="confirm_password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+        <label for="exampleInputPassword2">Confirm Password</label>
+        <input type="password" name="confirm_password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
       </div>
       <% if(typeof message != 'undefined') { %>
       <div class="form-group">
@@ -26,7 +34,7 @@
       </div>
       <% } %>
       <button type="submit" class="btn btn-primary">Sign Up Now</button>
-      <a href="/signin"><button type="button" class="btn btn-primary">Sign In</button></a>
+      <a href="/signin">Sign In</a>
     </form>
   </div>
     
